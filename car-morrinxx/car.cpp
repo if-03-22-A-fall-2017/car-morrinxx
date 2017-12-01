@@ -131,6 +131,23 @@ void set_acceleration_rate(Car car, double rate)
 }
 void accelerate(Car car)
 {
+  car->speed = car->acceleration_rate * 3.6 + car->speed;
+  if(car->type == AIXAM){
+    if(car->speed > AIXAM_MAX_SPEED){
+      car->speed = AIXAM_MAX_SPEED;
+    }
+  }
+  if(car->type == FIAT_MULTIPLA){
+    if(car->speed > FIAT_MULTIPLA_MAX_SPEED){
+      car->speed = FIAT_MULTIPLA_MAX_SPEED;
+    }
+  }
+  if(car->type == JEEP){
+    if(car->speed > JEEP_MAX_SPEED){
+      car->speed = JEEP_MAX_SPEED;
+    }
+  }
+
 
 }
 
